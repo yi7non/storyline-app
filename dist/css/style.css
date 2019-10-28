@@ -18,3 +18,94 @@ html {
     }
 
 
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }    
+
+.container {
+  width: 760px;
+}
+
+.header {
+  width: 100%;
+  background-color:  #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main {
+  background-color: black;
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+}
+
+.account-balance {
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  background-color: gainsboro;
+  padding: 10px 0;
+}
+
+.entry {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row-reverse;
+  padding: 120px 0;
+}
+
+.entry__section {
+  padding: 30px 55px;
+}
+
+.entry__section--center {
+  position: relative;
+}
+
+.entry__section--center::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-left: 2px solid grey;
+  border-right: 2px solid grey;
+  transform: scaleY(1.2);
+  z-index: -1;
+}
+
+.entry__text h3 {
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  position: relative;
+}
+
+.entry__text--done h3::after {
+  content: "";
+  background-image: url(../img/v-01.png);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 110px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: translate(25%, -100%);
+}
+
+.entry__btn a {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  background-color: #FFF;
+  padding: 6px 45px;
+  border-radius: 15px;
+  margin: 15px 0;
+}
