@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0; }
@@ -23,6 +24,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
   }    
 
 .container {
@@ -44,18 +46,49 @@ body {
   text-align: center;
 }
 
-.account-balance {
+.account-balance, .check-deposit{background-color: #2b2b2b;}
+
+.account-balance,
+.check-deposit > h1 {
   color: #fff;
   font-size: 24px;
   text-align: center;
-  background-color: gainsboro;
   padding: 10px 0;
+  font-weight: 100;
+  margin: 0;
+}
+
+.check-deposit--done {
+  position: relative;
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  background-color: #2b2b2b;
+  padding: 10px 0;
+  font-weight: 100;
+}
+
+.check-deposit--done::after {
+  content: "";
+  background-image: url(../img/v-01.png);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 110px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: translate(20%, -50%);
+}
+
+strong {
+  font-size: calc(100% + 25%) !important;
+  font-weight: 600 !important;
 }
 
 .entry {
   display: flex;
   justify-content: space-around;
-  flex-direction: row-reverse;
   padding: 120px 0;
 }
 
@@ -77,7 +110,6 @@ body {
   border-left: 2px solid grey;
   border-right: 2px solid grey;
   transform: scaleY(1.2);
-  z-index: -1;
 }
 
 .entry__text h3 {
@@ -101,6 +133,8 @@ body {
 }
 
 .entry__btn a {
+  position: relative;
+  z-index: 2;
   display: inline-block;
   text-decoration: none;
   color: black;
@@ -109,3 +143,89 @@ body {
   border-radius: 15px;
   margin: 15px 0;
 }
+
+.form-section {
+  width: 310px;
+  margin: 0 auto;
+  padding: 80px 0;
+}
+
+input[type=text] {
+  padding: 10px 0;
+  margin-right: 15px;
+}
+
+input[type=submit] {
+  padding: 12px 35px;
+  background-color: #FFF;
+  border: none;
+  border-radius: 25px;
+  font-size: 27px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.text-field {
+  margin: 15px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.account-balance--table {
+  display: flex;
+  justify-content: flex-end;
+  margin: 30px 0 10px;
+  align-items: baseline;
+}
+
+.account-balance--table p {
+  margin-left: auto;
+}
+
+
+.account-balance--table a {
+  background-color: #FFF;
+  padding: 0 16px;
+  border-radius: 16px;
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.table-section {
+  max-width: 625px;
+  margin: auto;
+  padding: 80px 0;
+}
+
+table {
+  border: 1px solid #8b8a8a;
+  border-collapse: collapse;
+  font-size: 18px;
+}
+
+td {
+  color: #000;
+}
+
+tr:nth-child(odd){
+  background-color: #c5c5c5;
+}
+
+tr:nth-child(even) {
+  background-color: #dfdfdf;
+}
+
+th {
+  background-color: black;
+  color: #FFF;
+}
+
+th, td {
+  border: 1px solid #FFF;
+  padding: 10px 0;
+}
+

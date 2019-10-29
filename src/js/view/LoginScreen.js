@@ -2,7 +2,7 @@ class LoginScreen {
 
     constructor(selector) {
 
-       this.selector = selector;  
+       this.selector = selector || '#main';  
        this.template = '';
        this.strings = ['להפקדת שיק', 'לפדיון קופה', 'הפקדת פרס כספי'];
 
@@ -12,7 +12,7 @@ class LoginScreen {
 
         this.template += `
         <div class="account-balance">
-            <p>₪ יתרת חשבון<span class="account-balance__num"> ${num} </span></p>
+            <p> יתרת חשבון<span class="account-balance__num"> ${num} ₪</span></p>
         </div>
         `;
 
@@ -49,6 +49,7 @@ class LoginScreen {
     printLoginScreen(stateNum) {
 
         if (stateNum > 3) stateNum = 3;
+        if (stateNum < 0 || isNaN(stateNum)) stateNum = 0;
 
             this.accountBalance(500 * stateNum);
             this.entry(stateNum);
