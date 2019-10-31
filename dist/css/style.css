@@ -145,7 +145,7 @@ strong {
 }
 
 .form-section {
-  width: 310px;
+  width: 360px;
   margin: 0 auto;
   padding: 80px 0;
 }
@@ -166,9 +166,16 @@ input[type=submit] {
 }
 
 .text-field {
+  position: relative;
   margin: 15px 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+}
+
+.ransom-home-btn {
+  position: absolute;
+  left: -50%;
+  bottom: -5px;
 }
 
 .account-balance--table {
@@ -183,7 +190,8 @@ input[type=submit] {
 }
 
 
-.account-balance--table a {
+.account-balance--table a,
+a#home {
   background-color: #FFF;
   padding: 0 16px;
   border-radius: 16px;
@@ -195,7 +203,7 @@ input[type=submit] {
   margin: 0 10px;
 }
 
-.table-section {
+.table-section, .feedbacks {
   max-width: 625px;
   margin: auto;
   padding: 80px 0;
@@ -229,3 +237,31 @@ th, td {
   padding: 10px 0;
 }
 
+/*
+***************************
+****feedbacks sections*****
+***************************
+*/
+
+.feedbacks * {
+  font-size: 24px;
+  font-weight: 100;
+}
+
+.feedbacks__account-balance {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.feedbacks__hr {
+  margin: 25px 0;
+}
+
+.feedbacks__secret-code {
+  text-align: right;
+}
+
+.check-deposit--long::after {
+  transform: translate(25%, -50%);
+}
