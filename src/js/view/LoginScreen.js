@@ -38,7 +38,7 @@ class LoginScreen {
                     <h3>${string}</h3>
                 </div>
                 <div class="entry__btn">
-                    <a href="#">כניסה</a>
+                    <a href="#${string}">כניסה</a>
                 </div>
             </div>
             `
