@@ -4,20 +4,29 @@ import CheckSuccess from './view/CheckSuccess';
 import Feedbacks from './view/Feedbacks';
 
 import Validation from './model/Validation';
+import Storage from './model/Storage';
 
 
 /************************
  ****** STATE ******
  ************************/
 
-const state = {
+var state = {
     check: 0,
     ransom: 0,
-    prize: 0,
-    status() {
-        return this.check + this.ransom + this.prize;
-    }
+    prize: 0
  };
+
+const storage = new Storage();
+storage.readStorage(state);
+console.log('1s', state);
+
+
+window.addEventListener('load', () => storage.readStorage(state));
+
+const status = () => state.check + state.ransom + state.prize;
+state.status = status;
+
 
 
 
@@ -79,6 +88,7 @@ const validateRansom = new Validation(['8935'], 'ransom');
 
 // append login screen
 loginScreen.printLoginScreen(state.status());
+console.log(state.status())
 
 // btn login screen handle
 const screenReference = () => {
@@ -102,6 +112,8 @@ document.getElementById('main').addEventListener('click', function(e) {
         if(hash.includes('שיק')) {
             if(validateCheck.validate()) {
                 state.check++;
+                storage.persistData(state);
+                state.status = status;
                 checkSuccess.printCheckSuccess(state.status());
             }
         }
@@ -109,6 +121,8 @@ document.getElementById('main').addEventListener('click', function(e) {
         if(hash.includes('קופה')) {
             if(validateRansom.validate()) {
                 state.ransom++;
+                storage.persistData(state);
+                state.status = status;
                 cashboxFeedbacks.printFeedbacks(state.status());
             }
         }
@@ -116,6 +130,8 @@ document.getElementById('main').addEventListener('click', function(e) {
         if(hash.includes('פרס')) {
             if(validatePrize.validate()) {
                 state.prize++;
+                storage.persistData(state);
+                state.status = status;
                 winFeedbacks.printFeedbacks(state.status());
             }
         }
