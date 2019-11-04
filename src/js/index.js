@@ -15,7 +15,7 @@ const state = {
     ransom: 0,
     prize: 0,
     status() {
-        return this.check + this.prize;
+        return this.check + this.ransom + this.prize;
     }
  };
 
@@ -66,6 +66,7 @@ const winFeedbacks = new Feedbacks('כספי הזכיה הופקדו בהצלח�
 
 const validateCheck = new Validation(['1001128', '25', '871', '65781', '500']);
 const validatePrize = new Validation(['999855', '25', '978', '58436', '500']);
+const validateRansom = new Validation(['8935'], 'ransom');
 
 
 
@@ -102,6 +103,13 @@ document.getElementById('main').addEventListener('click', function(e) {
             if(validateCheck.validate()) {
                 state.check++;
                 checkSuccess.printCheckSuccess(state.status());
+            }
+        }
+
+        if(hash.includes('קופה')) {
+            if(validateRansom.validate()) {
+                state.ransom++;
+                cashboxFeedbacks.printFeedbacks(state.status());
             }
         }
 

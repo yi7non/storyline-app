@@ -59,15 +59,25 @@ class DepositScreen {
      printDepositScreen(state) {
         const hash = decodeURI(window.location.hash);
         if (!state[this.type]) {
+
             this.deposit();
             this.formSection(); 
             document.querySelector(this.selector).innerHTML = this.template;
             this.template = "";
-         } else if (hash.includes('שיק')) {
+
+         } 
+         
+         else if (hash.includes('שיק')) {
             new CheckSuccess().printCheckSuccess(state.status());
-         } else if (hash.includes('פרס')) {
+         } 
+         
+         else if (hash.includes('קופה')) {
+            new Feedbacks('הקופה נפדתה בהצלחה', '77XX').printFeedbacks(state.status());
+         } 
+         
+         else if (hash.includes('פרס')) {
             new Feedbacks('כספי הזכיה הופקדו בהצלחה', 'XX25').printFeedbacks(state.status());
-         }
+         } 
         
      }
 

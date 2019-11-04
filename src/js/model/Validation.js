@@ -1,17 +1,22 @@
 class Validation {
 
-    constructor(correctInfo) {
+    constructor(correctInfo, type = false) {
         this.correctInfo = correctInfo;
-        this.elements;
+        this.type = type;
+        this.elements = {};
     }
 
     createElem() {
-        this.elements = {
-            number: document.getElementById('number').value,
-            code: document.getElementById('code').value,
-            branch: document.getElementById('branch').value,
-            account: document.getElementById('account').value,
-            depositAmount: document.getElementById('deposit-amount').value
+        if(!this.type) {
+            this.elements = {
+                number: document.getElementById('number').value,
+                code: document.getElementById('code').value,
+                branch: document.getElementById('branch').value,
+                account: document.getElementById('account').value,
+                depositAmount: document.getElementById('deposit-amount').value
+            }
+        } else {
+            this.elements.code = document.getElementById('code').value
         }
     }
 
