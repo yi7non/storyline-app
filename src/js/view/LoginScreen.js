@@ -1,40 +1,44 @@
 class LoginScreen {
 
-    constructor(selector) {
+    constructor(selector = '#main', state) {
 
-       this.selector = selector || '#main';  
+       this.selector = selector;
+       this.state = state;
+       console.log(this.state)  
        this.template = '';
        this.strings = ['להפקדת שיק', 'לפדיון קופה', 'הפקדת פרס כספי'];
 
     }
 
-    accountBalance(num) {
+    accountBalance() {
 
         this.template += `
         <div class="account-balance">
-            <p> יתרת חשבון<span class="account-balance__num"> ${num} ₪</span></p>
+            <p> יתרת חשבון<span class="account-balance__num"> ${this.state.status() * 500} ₪</span></p>
         </div>
         `;
 
     }
 
-    entry(stateNum) {
+    entry() {
 
         this.template += `
         <div class="entry">
-            ${this.entrySection(stateNum)}
+            ${this.entrySection(this.state.status())}
         </div>
         `;
 
     }
 
-    entrySection(stateNum) {
+    entrySection() {
+
+        const stateKey = Object.keys(this.state);
 
         return this.strings.map((string, i) => {
 
             return `
             <div class="entry__section ${i == 1 ? 'entry__section--center' : ''}">
-                <div class="entry__text ${i < stateNum ? 'entry__text--done' : ''}">
+                <div class="entry__text ${this.state[stateKey[i]] > 0 ? 'entry__text--done' : ''}">
                     <h3>${string}</h3>
                 </div>
                 <div class="entry__btn">

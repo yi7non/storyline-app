@@ -1,7 +1,11 @@
+import CheckSuccess from './CheckSuccess';
+import Feedbacks from './Feedbacks';
+
 class DepositScreen {
 
-    constructor(headers, strings, submitVal, selector) {
+    constructor(type, headers, strings, submitVal, selector) {
 
+        this.type = type;
         this.headers = headers;
         this.strings = strings;
         this.submitVal = submitVal;
@@ -47,15 +51,24 @@ class DepositScreen {
                     <input type="submit" value="${this.submitVal}">
                 </div>
             </form>
+            <h4 id="wrong-error" style="color:red;">טעות בפרטים נסו שוב</h4>
         </div> 
         `;
      }
 
-     printDepositScreen() {
-        this.deposit();
-        this.formSection(); 
-        document.querySelector(this.selector).innerHTML = this.template;
-        this.template = "";
+     printDepositScreen(state) {
+        const hash = decodeURI(window.location.hash);
+        if (!state[this.type]) {
+            this.deposit();
+            this.formSection(); 
+            document.querySelector(this.selector).innerHTML = this.template;
+            this.template = "";
+         } else if (hash.includes('שיק')) {
+            new CheckSuccess().printCheckSuccess(state.status());
+         } else if (hash.includes('פרס')) {
+            new Feedbacks('כספי הזכיה הופקדו בהצלחה', 'XX25').printFeedbacks(state.status());
+         }
+        
      }
 
 }

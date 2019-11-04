@@ -266,3 +266,15 @@ th, td {
 .check-deposit--long::after {
   transform: translate(25%, -50%);
 }
+
+#wrong-error {
+  transition: all .6s;
+  height: 0px;
+  opacity: 0;
+  visibility: hidden;
+}
+#wrong-error.show {
+  max-height: 800px;
+  opacity: 1;
+  visibility: visible;
+}

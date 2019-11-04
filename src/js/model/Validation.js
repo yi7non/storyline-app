@@ -15,11 +15,7 @@ class Validation {
         }
     }
 
-    validateCheck() {
-        const hash = decodeURI(window.location.hash);
-        const note = '<h4 style="color:red;">טעות בפרטים נסו שוב</h4>';
-        
-        if(hash.includes('שיק')) {
+    validate() {
             
             this.createElem();
             const keys = Object.keys(this.elements);
@@ -28,12 +24,10 @@ class Validation {
             });
 
             if(!isValid.every(item => item)) {
-                document.querySelector('form').innerHTML += note;
+                document.getElementById('wrong-error').classList.add('show');
             } else {
                 return true;
             }
-
-        }
         
     }
 

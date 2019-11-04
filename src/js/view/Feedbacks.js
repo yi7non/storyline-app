@@ -1,9 +1,8 @@
 class Feedbacks {
 
-    constructor(title, sum, code, selector) {
+    constructor(title, code, selector) {
         this.title = title;
-        this.sum = sum;
-        this.code =code;
+        this.code = code;
         this.selector = selector || '#main';
         this.template = '';
     }
@@ -17,12 +16,12 @@ class Feedbacks {
         `;
     }
 
-    createFeedbacks() {
+    createFeedbacks(sum) {
         this.template += `
         <div class="feedbacks">
             <div class="feedbacks__account-balance">
                 <div class="feedbacks__title">
-                    <h2>יתרת חשבון <span class="feedbacks__account-sum">${this.sum}</span> ₪</h2>
+                    <h2>יתרת חשבון <span class="feedbacks__account-sum">${sum * 500}</span> ₪</h2>
                 </div>
                 <div class="feedbacks__btn">
                     <a href="javascript:void(0)" id="home">
@@ -40,9 +39,9 @@ class Feedbacks {
         `;
     }
 
-    printFeedbacks() {
+    printFeedbacks(sum) {
         this.deposit();
-        this.createFeedbacks();
+        this.createFeedbacks(sum);
         document.querySelector(this.selector).innerHTML = this.template;
         this.template = '';
     }

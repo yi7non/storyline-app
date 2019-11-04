@@ -21,10 +21,10 @@ class CheckSuccess {
         `;
     }
 
-    accountBalanceTable() {
+    accountBalanceTable(sum) {
         return `
         <div class="account-balance--table">
-            <p>יתרת חשבון <strong> 500 </strong>₪</p>
+            <p>יתרת חשבון <strong> ${sum * 500} </strong>₪</p>
             <a href="javascript:void(0)" id="home">
                 <svg viewBox="-10 30 52 30" width="50" height="50">
                     <use xlink:href="img/sprite.svg#icon-home3">
@@ -60,18 +60,18 @@ class CheckSuccess {
         `;
     }
 
-    tableSection() {
+    tableSection(sum) {
         this.template += `
         <div class="table-section">
-            ${this.accountBalanceTable()}
+            ${this.accountBalanceTable(sum)}
             ${this.createTable()}
         </div>
         `;
     }
 
-    printCheckSuccess() {
+    printCheckSuccess(sum) {
         this.checkDeposit();
-        this.tableSection();
+        this.tableSection(sum);
         document.querySelector(this.selector).innerHTML = this.template;
         this.template = '';
     }
