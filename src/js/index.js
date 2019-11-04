@@ -148,3 +148,12 @@ document.getElementById('main').addEventListener('click', function(e) {
 });
 
 
+document.getElementById('restart').addEventListener('click', function() {
+    state = {
+        check: 0,
+        ransom: 0,
+        prize: 0
+     }
+     storage.persistData(state);
+     location.reload();
+});

@@ -278,3 +278,15 @@ th, td {
   opacity: 1;
   visibility: visible;
 }
+
+#restart {
+  transition: all .7s;
+  position: absolute;
+  right: -60px;
+  transform: translateX(50%);
+  top: -12px;
+}
+
+#restart:hover {
+  fill: red;
+}

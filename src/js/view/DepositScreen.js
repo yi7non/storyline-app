@@ -57,6 +57,9 @@ class DepositScreen {
      }
 
      printDepositScreen(state) {
+
+        state.status = () => state.check + state.ransom + state.prize;
+        
         const hash = decodeURI(window.location.hash);
         if (!state[this.type]) {
 
