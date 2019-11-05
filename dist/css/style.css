@@ -66,7 +66,7 @@ body {
   color: #fff;
   font-size: 24px;
   text-align: center;
-  padding: 10px 0;
+  padding: 10px 110px 10px 0;
   font-weight: 100;
   margin: 0;
 }
@@ -84,6 +84,8 @@ body {
 
 .btn {
   display: flex;
+  position: relative;
+  z-index: 9;
 }
 
 .check-deposit--done {
@@ -100,13 +102,13 @@ body {
   content: "";
   background-image: url(../img/v-01.png);
   position: absolute;
-  top: 0;
-  left: 0;
+  bottom: 0;
+  right: 0;
   height: 110px;
   width: 100%;
   background-repeat: no-repeat;
-  background-position: center;
-  transform: translate(20%, -50%);
+  background-position: 100% 0;
+  transform: translateY(-12px);
 }
 
 strong {
@@ -152,13 +154,13 @@ strong {
   content: "";
   background-image: url(../img/v-01.png);
   position: absolute;
-  top: 0;
-  left: 0;
+  bottom: 0;
+  right: 0;
   height: 110px;
   width: 100%;
   background-repeat: no-repeat;
-  background-position: center;
-  transform: translate(25%, -100%);
+  background-position: 100% 0;
+  transform: translateY(-20px);
 }
 
 .entry__btn a {
@@ -291,10 +293,6 @@ th, td {
 
 .feedbacks__secret-code {
   text-align: right;
-}
-
-.check-deposit--long::after {
-  transform: translate(25%, -50%);
 }
 
 #wrong-error {

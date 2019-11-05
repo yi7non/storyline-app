@@ -36,13 +36,6 @@ class Feedbacks {
                 <div class="feedbacks__title">
                     <h2>יתרת חשבון <span class="feedbacks__account-sum">${sum * 500}</span> ₪</h2>
                 </div>
-                <div class="feedbacks__btn">
-                    <a href="javascript:void(0)" id="home">
-                        <svg viewBox="-10 30 52 30" width="50" height="50">
-                            <use xlink:href="img/sprite.svg#icon-home3">
-                        </use></svg>
-                    </a>
-                </div>
             </div>
             <hr class="feedbacks__hr">
             <div class="feedbacks__secret-code">
