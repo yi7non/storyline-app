@@ -1,4 +1,15 @@
 
+@font-face {
+  font-family: openSans;
+  src: url(OpenSansHebrew-Regular.ttf);
+}
+
+@font-face {
+  font-family: openSans;
+  src: url(OpenSansHebrew-ExtraBoldItalic.ttf);
+  font-weight: bold;
+}
+
 * {
   margin: 0;
   padding: 0; }
@@ -20,15 +31,16 @@ html {
 
 
 body {
-    height: 100vh;
+    max-width: 1024px;
+    margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: openSans;
   }    
 
 .container {
-  width: 760px;
+  width: 100%;
 }
 
 .header {
@@ -38,6 +50,7 @@ body {
   align-items: center;
   justify-content: center;
 }
+
 
 .main {
   background-color: black;
@@ -56,6 +69,21 @@ body {
   padding: 10px 0;
   font-weight: 100;
   margin: 0;
+}
+
+.account-balance,
+.check-deposit {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 20px;
+}
+
+.account-balance p {
+  flex: 1;
+}
+
+.btn {
+  display: flex;
 }
 
 .check-deposit--done {
@@ -83,7 +111,7 @@ body {
 
 strong {
   font-size: calc(100% + 25%) !important;
-  font-weight: 600 !important;
+  font-weight: bold !important;
 }
 
 .entry {
@@ -146,14 +174,16 @@ strong {
 }
 
 .form-section {
-  width: 360px;
+  width: 460px;
   margin: 0 auto;
-  padding: 80px 0;
+  padding: 30px 15px;
 }
 
-input[type=text] {
+input[type=number] {
   padding: 10px 0;
   margin-right: 15px;
+  font-size: 24px;
+  box-shadow: inset 0px 2px 7px 0px black;
 }
 
 input[type=submit] {
@@ -162,7 +192,7 @@ input[type=submit] {
   border: none;
   border-radius: 25px;
   font-size: 27px;
-  font-weight: 600;
+  font-weight: bold;
   cursor: pointer;
 }
 
@@ -191,14 +221,14 @@ input[type=submit] {
 }
 
 
-.account-balance--table a,
+a#print,
 a#home {
   background-color: #FFF;
   padding: 0 16px;
   border-radius: 16px;
   color: black;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: bold;
   display: flex;
   align-items: center;
   margin: 0 10px;

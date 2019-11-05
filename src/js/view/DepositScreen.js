@@ -9,14 +9,7 @@ class DepositScreen {
         this.headers = headers;
         this.strings = strings;
         this.submitVal = submitVal;
-        this.selector = selector || '#main';
-        this.homeBtn = `
-        <a href="javascript:void(0)" id="home" class='ransom-home-btn'>
-            <svg viewBox="-10 30 52 30" width="50" height="50">
-                <use xlink:href="img/sprite.svg#icon-home3">
-            </use></svg>
-        </a>
-        `;  
+        this.selector = selector || '#main';  
         this.template = '';
  
      }
@@ -25,6 +18,19 @@ class DepositScreen {
          this.template += `
          <div class="check-deposit">
                 <h1><strong>${this.headers[0]}</strong>${this.headers[1]}</h1>
+                <div class="btn">
+                <a href="javascript:void(0)" id="print">
+                    <svg viewBox="0 -4 20 32" width="50" height="50">
+                        <use xlink:href="img/sprite.svg#icon-print">
+                    </svg>
+                    הדפסה
+                </a>
+                <a href="javascript:void(0)" id="home">
+                    <svg viewBox="-10 30 52 30" width="50" height="50">
+                        <use xlink:href="img/sprite.svg#icon-home3">
+                    </svg>
+                </a>
+            </div>
         </div>
          `;
      }
@@ -34,8 +40,7 @@ class DepositScreen {
             return `
             <div class="text-field">
                 <label for="${string.name}">${string.label}</label>
-                <input type="text" name="${string.name}" id="${string.name}">
-                ${this.submitVal.includes('פדיון') ? this.homeBtn : ''}
+                <input type="number" name="${string.name}" id="${string.name}">
             </div>
             ${i == (strings.length - 2) ? '<hr>' : ''}
             `;
