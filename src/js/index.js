@@ -147,6 +147,12 @@ document.getElementById('main').addEventListener('click', function(e) {
     }
 });
 
+document.getElementById('main').addEventListener('click', function(e) {
+    if(e.target.matches('#print, #print *')) {
+        window.print();
+    }
+});
+
 
 document.getElementById('restart').addEventListener('click', function() {
     state = {
