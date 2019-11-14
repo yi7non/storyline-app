@@ -67,8 +67,8 @@ const prizeDepositScreen = new DepositScreen('prize', ['הפקדת פרס כספ
 
 
 const checkSuccess = new CheckSuccess();
-const cashboxFeedbacks = new Feedbacks('הקופה נפדתה בהצלחה', '77XX');
-const winFeedbacks = new Feedbacks('כספי הזכיה הופקדו בהצלחה', 'XX25');
+const cashboxFeedbacks = new Feedbacks('הקופה נפדתה בהצלחה', '??77');
+const winFeedbacks = new Feedbacks('כספי הזכיה הופקדו בהצלחה', '25??');
 
 
 
@@ -161,5 +161,6 @@ document.getElementById('restart').addEventListener('click', function() {
         prize: 0
      }
      storage.persistData(state);
+     window.location.hash = '';
      location.reload();
 });

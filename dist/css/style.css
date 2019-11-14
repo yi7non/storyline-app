@@ -6,9 +6,15 @@
 
 @font-face {
   font-family: openSans;
-  src: url(OpenSansHebrew-ExtraBoldItalic.ttf);
+  src: url(OpenSansHebrew-ExtraBold.ttf);
   font-weight: bold;
 }
+
+@font-face {
+  font-family: heebo;
+  src: url(Heebo.ttf);
+}
+
 
 * {
   margin: 0;
@@ -291,10 +297,6 @@ th, td {
   margin: 25px 0;
 }
 
-.feedbacks__secret-code {
-  text-align: right;
-}
-
 #wrong-error {
   transition: all .6s;
   height: 0px;
@@ -317,4 +319,38 @@ th, td {
 
 #restart:hover {
   fill: red;
+}
+
+/*******************
+secret-code styling
+*******************/
+
+.feedbacks__secret-code {
+  text-align: center;
+  background-color: #F0EFEF;
+  padding: 10px 0 100px;
+  color: #231F20;
+}
+
+span.num-code {
+  padding: 0 15px;
+  margin: 0 5px;
+  border-bottom: 4px solid #231F20;
+  color: #848484;
+  font-size: 32px;
+  font-family: heebo;
+}
+
+.feedbacks__secret-code-string {
+  display: block;
+  font-family: heebo;
+  font-size: 21px;
+  color: #D32A28;
+  padding: 15px 0;
+  font-weight: 600;
+}
+
+.sticker {
+  color: #231F20 !important;
+  background-color: #FFF;
 }

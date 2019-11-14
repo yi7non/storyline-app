@@ -19,12 +19,6 @@ class DepositScreen {
          <div class="check-deposit">
                 <h1><strong>${this.headers[0]}</strong>${this.headers[1]}</h1>
                 <div class="btn">
-                <a href="javascript:void(0)" id="print">
-                    <svg viewBox="0 -4 20 32" width="50" height="50">
-                        <use xlink:href="img/sprite.svg#icon-print">
-                    </svg>
-                    הדפסה
-                </a>
                 <a href="javascript:void(0)" id="home">
                     <svg viewBox="-10 30 52 30" width="50" height="50">
                         <use xlink:href="img/sprite.svg#icon-home3">

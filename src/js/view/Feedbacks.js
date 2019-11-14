@@ -39,16 +39,23 @@ class Feedbacks {
             </div>
             <hr class="feedbacks__hr">
             <div class="feedbacks__secret-code">
-                <h2>500 ₪ הופקדו לחשבון עם קוד סודי <span class="feedbacks__code-num">${this.code}</span></h2>
+                <h2>500 ₪ הופקדו לחשבון עם <span class="feedbacks__secret-code-string">קוד סודי</span> <span class="feedbacks__code-num">${
+                    this.code.split('').map(code => `<span class="num-code">${code}</span>`).join('')
+                }</span></h2>
             </div>
         </div>
         `;
+    }
+
+    stickerNumStyle() {
+        document.querySelectorAll('.num-code').forEach(num => !isNaN(Number(num.textContent)) ? num.classList.add('sticker') : '');
     }
 
     printFeedbacks(sum) {
         this.deposit();
         this.createFeedbacks(sum);
         document.querySelector(this.selector).innerHTML = this.template;
+        this.stickerNumStyle();
         this.template = '';
     }
 
