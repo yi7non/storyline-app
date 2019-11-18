@@ -81,7 +81,24 @@ class DepositScreen {
             new Feedbacks('כספי הזכיה הופקדו בהצלחה', 'XX25').printFeedbacks(state.status());
          } 
         
+         this.pushtextField();
      }
+
+     pushtextField() {
+
+        let initPadding;
+
+        document.querySelectorAll('[type=number]').forEach(num => num.addEventListener('focus', function(e) {
+            initPadding = getComputedStyle(e.path[3]).paddingBottom;
+            window.scrollTo(0, e.path[1].offsetTop);
+            e.path[3].style.paddingBottom = e.path[1].offsetTop + 'px';            
+        }));
+
+        document.querySelectorAll('[type=number]').forEach(num => num.addEventListener('blur', function(e) {
+            window.scrollTo(0, e.path[1].offsetTop);
+            e.path[3].style.paddingBottom = initPadding;            
+        }));
+    }
 
 }
 
