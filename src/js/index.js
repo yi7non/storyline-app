@@ -177,4 +177,6 @@ document.getElementById('restart').addEventListener('click', function() {
          window.location.hash = '';
          location.reload();
     });
+
+    document.querySelectorAll('.entry__text').forEach(element => element.classList.remove('entry__text--done'));
 });
