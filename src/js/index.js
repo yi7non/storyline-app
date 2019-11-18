@@ -59,7 +59,7 @@ const prizeDepositScreen = new DepositScreen('prize', ['הפקדת פרס כספ
     {label: 'מספר סניף', name: 'branch'},
     {label: 'מספר חשבון', name: 'account'},
     {label: 'מספר כרטיס גירוד', name: 'number'},
-    {label: 'סכום הפקדה', name: 'deposit-amount'}
+    {label: 'סכום זכייה', name: 'deposit-amount'}
 ], 'הפקדה');
 
 
@@ -68,7 +68,7 @@ const prizeDepositScreen = new DepositScreen('prize', ['הפקדת פרס כספ
 
 const checkSuccess = new CheckSuccess();
 const cashboxFeedbacks = new Feedbacks('הקופה נפדתה בהצלחה', '??77');
-const winFeedbacks = new Feedbacks('כספי הזכיה הופקדו בהצלחה', '25??');
+const winFeedbacks = new Feedbacks('כספי הזכייה הופקדו בהצלחה', '25??');
 
 
 
@@ -96,7 +96,7 @@ const screenReference = () => {
     const hash = decodeURI(window.location.hash);
 
     if (hash.includes('שיק')) checkDepositScreen.printDepositScreen(state);
-    if (hash.includes('קופה')) ransomDepositScreen.printDepositScreen(state);
+    if (hash.includes('קופת')) ransomDepositScreen.printDepositScreen(state);
     if (hash.includes('פרס')) prizeDepositScreen.printDepositScreen(state);
 
 }
@@ -118,7 +118,7 @@ document.getElementById('main').addEventListener('click', function(e) {
             }
         }
 
-        if(hash.includes('קופה')) {
+        if(hash.includes('קופת')) {
             if(validateRansom.validate()) {
                 state.ransom++;
                 storage.persistData(state);
@@ -163,4 +163,18 @@ document.getElementById('restart').addEventListener('click', function() {
      storage.persistData(state);
      window.location.hash = '';
      location.reload();
+});
+
+
+['touchstart', 'click'].forEach(event => {
+    document.getElementById('restart').addEventListener(event, function() {
+        state = {
+            check: 0,
+            ransom: 0,
+            prize: 0
+         }
+         storage.persistData(state);
+         window.location.hash = '';
+         location.reload();
+    });
 });

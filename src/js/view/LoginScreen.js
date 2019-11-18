@@ -5,7 +5,7 @@ class LoginScreen {
        this.selector = selector;
        this.state = state;
        this.template = '';
-       this.strings = ['להפקדת שיק', 'לפדיון קופה', 'הפקדת פרס כספי'];
+       this.strings = ['הפקדת שיק', 'פדיון קופת חיסכון', 'הפקדת פרס כספי'];
 
     }
 

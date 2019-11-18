@@ -5,6 +5,12 @@ class Feedbacks {
         this.code = code;
         this.selector = selector || '#main';
         this.template = '';
+        this.print = `<a href="javascript:void(0)" id="print">
+                            <svg viewBox="0 -4 20 32" width="50" height="50">
+                                <use xlink:href="img/sprite.svg#icon-print">
+                            </svg>
+                            הדפסה
+                        </a>`;
     }
 
 
@@ -13,12 +19,7 @@ class Feedbacks {
         <div class="check-deposit check-deposit--done check-deposit--long">
                <h1>${this.title}</h1>
                <div class="btn">
-                <a href="javascript:void(0)" id="print">
-                    <svg viewBox="0 -4 20 32" width="50" height="50">
-                        <use xlink:href="img/sprite.svg#icon-print">
-                    </svg>
-                    הדפסה
-                </a>
+                ${window.location.hash.includes('שיק') ? this.print : ''}
                 <a href="javascript:void(0)" id="home">
                     <svg viewBox="-10 30 52 30" width="50" height="50">
                         <use xlink:href="img/sprite.svg#icon-home3">

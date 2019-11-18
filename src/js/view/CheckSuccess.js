@@ -38,6 +38,7 @@ class CheckSuccess {
         return `
         <div class="account-balance--table">
             <p>יתרת חשבון <strong> ${sum * 500} </strong>₪</p>
+            <p>בחשבונך קיימות מספר קופות חיסכון:</p>
         </div>
         `;
     }
